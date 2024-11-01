@@ -6,12 +6,13 @@ import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
-import { CookingPot, Menu, CloudCog, Code2, Zap, Database, ChefHat, Linkedin } from "lucide-react"
+import { CookingPot, Menu, CloudCog, Code2, Zap, Database, ChefHat, Linkedin, Send } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useState, useEffect, useRef } from "react"
 import { Toaster, toast } from 'sonner'
 import { Inter, JetBrains_Mono } from 'next/font/google'
+import { Label } from "@/components/ui/label"
 
 const inter = Inter({
   subsets: ['latin'],
@@ -25,7 +26,7 @@ const jetbrainsMono = JetBrains_Mono({
   variable: '--font-jetbrains-mono',
 })
 
-export default function LandingPageComponent() {
+export default function LandingPage() {
   const formRef = useRef<HTMLFormElement>(null)
   const [darkMode, setDarkMode] = useState(false)
   const [isSending, setIsSending] = useState(false)
@@ -244,7 +245,7 @@ export default function LandingPageComponent() {
                   <p className="text-gray-700 dark:text-gray-300">Developing innovative IoT systems that connect devices, collect data, and provide real-time insights for smarter decision-making.</p>
                 </CardContent>
               </Card>
-              <Card className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm border-[#f96012]/20 dark:border-[#f29727]/20 transition-all hover:shadow-lg hover:scale-105">
+              <Card className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm border-[#f96012]/20  dark:border-[#f29727]/20 transition-all hover:shadow-lg hover:scale-105">
                 <CardHeader>
                   <div  className="w-12 h-12 rounded-full  bg-[#f96012]/10 dark:bg-[#f29727]/10 flex items-center justify-center mb-4">
                     <Database className="w-6 h-6 text-[#f96012] dark:text-[#f29727]" />
@@ -364,31 +365,63 @@ export default function LandingPageComponent() {
         </section>
         <section id="contact" className="w-full py-12 md:py-24 lg:py-32 bg-white/80 dark:bg-black/80 flex justify-center">
           <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-gray-900 dark:text-gray-100">Let's Bake Something Amazing</h2>
-                <p className="mx-auto max-w-[600px] text-gray-700 md:text-xl dark:text-gray-300">
-                  Ready to cook up your next big idea? Drop us a line and let's start mixing!
-                </p>
-              </div>
-              <div className="w-full max-w-sm space-y-2">
-                <form ref={formRef} className="flex flex-col space-y-4" onSubmit={handleSubmit}>
-                  <Input type="text" name="name" placeholder="Name" required />
-                  <Input type="email" name="email" placeholder="Email" required />
-                  <Textarea name="message" placeholder="Your message" required />
+            <div className="flex flex-col items-center space-y-4 text-center mb-8">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-gray-900 dark:text-gray-100">Let's Bake Something Amazing</h2>
+              <p className="mx-auto max-w-[700px] text-gray-700 md:text-xl dark:text-gray-300">
+                Ready to cook up your next big idea? Drop us a line and let's start mixing!
+              </p>
+            </div>
+            <Card className="w-full max-w-md mx-auto bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border-[#f96012]/20 dark:border-[#f29727]/20">
+              <CardHeader>
+                <CardTitle className="text-2xl font-bold text-center text-gray-900 dark:text-gray-100">Contact Us</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <form ref={formRef} className="space-y-4" onSubmit={handleSubmit}>
+                  <div className="space-y-2">
+                    <Label htmlFor="name" className="text-sm font-medium text-gray-900 dark:text-gray-200">Name</Label>
+                    <Input 
+                      id="name"
+                      name="name" 
+                      placeholder="Your Name" 
+                      required 
+                      className="w-full bg-white/70 dark:bg-gray-700/70 border-[#f96012]/20 dark:border-[#f29727]/20 focus:border-[#f96012] dark:focus:border-[#f29727] focus:ring-[#f96012] dark:focus:ring-[#f29727]"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="email" className="text-sm font-medium text-gray-900 dark:text-gray-200">Email</Label>
+                    <Input 
+                      id="email"
+                      name="email" 
+                      type="email" 
+                      placeholder="your.email@example.com" 
+                      required 
+                      className="w-full bg-white/70 dark:bg-gray-700/70 border-[#f96012]/20 dark:border-[#f29727]/20 focus:border-[#f96012] dark:focus:border-[#f29727] focus:ring-[#f96012] dark:focus:ring-[#f29727]"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="message" className="text-sm font-medium text-gray-900 dark:text-gray-200">Message</Label>
+                    <Textarea 
+                      id="message"
+                      name="message" 
+                      placeholder="Your message" 
+                      required 
+                      className="w-full bg-white/70 dark:bg-gray-700/70 border-[#f96012]/20 dark:border-[#f29727]/20 focus:border-[#f96012] dark:focus:border-[#f29727] focus:ring-[#f96012] dark:focus:ring-[#f29727]"
+                    />
+                  </div>
                   <Button 
                     type="submit" 
-                    className="bg-[#f96012] hover:bg-[#ff3000] text-white"
+                    className="w-full bg-[#f96012] hover:bg-[#ff3000] text-white"
                     disabled={isSending}
                   >
                     {isSending ? 'Sending...' : 'Send Message'}
+                    <Send className="w-4 h-4 ml-2" />
                   </Button>
                   {isSending && (
                     <Progress value={progress} className="w-full bg-[#f96012]" />
                   )}
                 </form>
-              </div>
-            </div>
+              </CardContent>
+            </Card>
           </div>
         </section>
       </main>
