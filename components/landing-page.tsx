@@ -25,7 +25,7 @@ const jetbrainsMono = JetBrains_Mono({
   variable: '--font-jetbrains-mono',
 })
 
-export function LandingPageComponent() {
+export default function LandingPageComponent() {
   const formRef = useRef<HTMLFormElement>(null)
   const [darkMode, setDarkMode] = useState(false)
   const [isSending, setIsSending] = useState(false)
@@ -112,7 +112,7 @@ export function LandingPageComponent() {
         }
       `}</style>
       <Toaster />
-      <header className="sticky top-0 z-50 px-4 lg:px-6 h-16 flex items-center justify-between border-b border-[#f96012]/20 dark:border-[#f29727]/20 bg-white/80 dark:bg-black/80 backdrop-blur-sm">
+      <header className="sticky top-0 z-50 w-full px-4 lg:px-6 h-16 flex items-center justify-between border-b border-[#f96012]/20 dark:border-[#f29727]/20 bg-white/80 dark:bg-black/80 backdrop-blur-sm">
         <div className="flex items-center gap-6">
           <button onClick={scrollToTop} className="text-2xl font-bold text-gray-900 dark:text-gray-100 hover:text-[#f96012] dark:hover:text-[#f29727] transition-colors">
             softbake.dev
@@ -181,9 +181,9 @@ export function LandingPageComponent() {
           </button>
         </div>
       )}
-      <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-white/80 dark:bg-black/80">
-          <div className="container px-4 md:px-6">
+      <main className="flex-1 flex flex-col items-center">
+        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-white/80 dark:bg-black/80 flex justify-center">
+          <div className="container px-4 md:px-6 flex flex-col items-center">
             <div className="flex flex-col items-center space-y-4 text-center">
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/softbake%20logo-svg-3sYfHzKk3szrxIhWneQUuqJYQZGqN0.svg"
@@ -207,7 +207,7 @@ export function LandingPageComponent() {
             </div>
           </div>
         </section>
-        <section id="ingredients" className="w-full py-12 md:py-24 lg:py-32 bg-white/80 dark:bg-black/80">
+        <section id="ingredients" className="w-full py-12 md:py-24 lg:py-32 bg-white/80 dark:bg-black/80 flex justify-center">
           <div className="container px-4 md:px-6">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12 text-gray-900 dark:text-gray-100">Our Secret Ingredients</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -246,7 +246,7 @@ export function LandingPageComponent() {
               </Card>
               <Card className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm border-[#f96012]/20 dark:border-[#f29727]/20 transition-all hover:shadow-lg hover:scale-105">
                 <CardHeader>
-                  <div className="w-12 h-12 rounded-full  bg-[#f96012]/10 dark:bg-[#f29727]/10 flex items-center justify-center mb-4">
+                  <div  className="w-12 h-12 rounded-full  bg-[#f96012]/10 dark:bg-[#f29727]/10 flex items-center justify-center mb-4">
                     <Database className="w-6 h-6 text-[#f96012] dark:text-[#f29727]" />
                   </div>
                   <CardTitle className="text-xl font-bold text-gray-900 dark:text-gray-100">Data Analytics & AI</CardTitle>
@@ -258,7 +258,7 @@ export function LandingPageComponent() {
             </div>
           </div>
         </section>
-        <section id="about" className="w-full py-12 md:py-24 lg:py-32 bg-white/80 dark:bg-black/80">
+        <section id="about" className="w-full py-12 md:py-24 lg:py-32 bg-white/80 dark:bg-black/80 flex justify-center">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center space-y-4 text-center mb-12">
               <ChefHat className="w-16 h-16 text-[#f96012] dark:text-[#f29727] mb-4" />
@@ -362,7 +362,7 @@ export function LandingPageComponent() {
             </div>
           </div>
         </section>
-        <section id="contact" className="w-full py-12 md:py-24 lg:py-32 bg-white/80 dark:bg-black/80">
+        <section id="contact" className="w-full py-12 md:py-24 lg:py-32 bg-white/80 dark:bg-black/80 flex justify-center">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-2">
@@ -392,8 +392,8 @@ export function LandingPageComponent() {
           </div>
         </section>
       </main>
-      <footer className="py-6 w-full shrink-0 px-4 md:px-6 border-t border-[#f96012]/20 dark:border-[#f29727]/20 bg-white/80 dark:bg-black/80 backdrop-blur-sm">
-        <div className="container flex flex-col sm:flex-row items-center justify-between gap-4">
+      <footer className="w-full py-6 px-4 md:px-6 border-t border-[#f96012]/20 dark:border-[#f29727]/20 bg-white/80 dark:bg-black/80 backdrop-blur-sm">
+        <div className="container mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-gray-700 dark:text-gray-300">© 2024 SoftBake. All rights reserved.</p>
           <nav className="flex gap-4 sm:gap-6">
             <a className="text-xs hover:underline underline-offset-4 text-gray-700 dark:text-gray-300" href="#">
