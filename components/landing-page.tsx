@@ -429,12 +429,12 @@ export default function LandingPage() {
         <div className="container mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-gray-700 dark:text-gray-300">© 2024 SoftBake. All rights reserved.</p>
           <nav className="flex gap-4 sm:gap-6">
-            <a className="text-xs hover:underline underline-offset-4 text-gray-700 dark:text-gray-300" href="#">
+            <Link href="/terms-of-service" className="text-xs hover:underline underline-offset-4 text-gray-700 dark:text-gray-300">
               Terms of Service
-            </a>
-            <a className="text-xs hover:underline underline-offset-4 text-gray-700 dark:text-gray-300" href="#">
-              Privacy
-            </a>
+            </Link>
+            <Link href="/privacy" className="text-xs hover:underline underline-offset-4 text-gray-700 dark:text-gray-300">
+              Privacy Policy
+            </Link>
           </nav>
         </div>
       </footer>
